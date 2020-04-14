@@ -1,0 +1,21 @@
+<%- include("./partials/header.ejs"); %>
+
+<h1>Holy Jesus that's a wide form</h1>
+
+<form action="/accommodation" method="GET">
+    <div class="form-group">
+        <label for="destination">Destination</label>
+        <input type="text" class="form-control" id="destination" name="search[destination]">
+    </div>
+    <div class="form-group">
+        <label for="Check-in">Check-in</label>
+        <input type="text" class="form-control" id="checkin" name="search[checkin]">
+    </div>
+    <div class="form-group">
+        <label for="Check-out">Check-out</label>
+        <input type="text" class="form-control" id="checkout" name="search[checkout]">
+    </div>
+    <button class="btn btn-primary">Submit</button>
+</form>
+
+<%- include("./partials/footer.ejs"); %>
