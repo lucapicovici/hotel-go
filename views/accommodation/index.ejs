@@ -1,6 +1,31 @@
 <%- include("../partials/header.ejs"); %>
 
-<h1>Heya this is the results page!</h1>
-<a href="/accommodation/123abc">Link to a hotel</a>
+<div class="container">
+    <h1>Heya this is the results page!</h1>
+    <a href="/accommodation/123abc">Link to a hotel</a>
+
+    <div class="row">
+        <div class="col-8">
+            <% accommodation.forEach(function(accommodation){ %>
+                <div class="card mb-3">
+                    <div class="row no-gutters">
+                      <div class="col-md-4">
+                        <a href="/accommodation/<%= accommodation._id %>">
+                          <img src="<%= accommodation.photos[0].src %>" class="card-img" alt="...">
+                        </a>
+                      </div>
+                      <div class="col-md-8">
+                        <div class="card-body">
+                          <h5 class="card-title"><%= accommodation.name %></h5>
+                          <p class="card-text"><%= accommodation.type %></p>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+            <% }); %>
+        </div>
+    </div>
+</div>
+
 
 <%- include("../partials/footer.ejs"); %>
