@@ -32,7 +32,7 @@ passport.use("local.register", new localStrategy({
         });
         return done(null, false, req.flash("error", messages));
     }
-
+    
     User.findOne({"email": email}, function(err, foundUser){
         if (err) {
             return done(err);
@@ -44,7 +44,7 @@ passport.use("local.register", new localStrategy({
         newUser.email = email;
         newUser.password = newUser.encryptPassword(password);
 
-        newUser.save(function(err, savedUser){
+        newUser.save(function(err, user){
             if (err) {
                 return done(err);
             }
