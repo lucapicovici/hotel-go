@@ -5,6 +5,7 @@ var express    = require("express"),
     flash      = require("connect-flash"),
     validator  = require("express-validator"),
     bodyParser = require("body-parser"),
+    seedDB     = require("./seeds.js");
     app        = express();
 
 var indexRoutes         = require("./routes/index.js"),
@@ -34,6 +35,7 @@ app.use("/", indexRoutes);
 mongoose.set("useUnifiedTopology", true);
 mongoose.set("useNewUrlParser", true);
 mongoose.connect("mongodb://localhost/hotel-go");
+seedDB();
 
 
 app.listen(3000, () => {
