@@ -1,6 +1,6 @@
 <%- include("./partials/header.ejs"); %>
 
-<h1>Holy Jesus that's a wide form</h1>
+<h1>Search destinations</h1>
 
 <form action="/accommodation" method="GET">
     <div class="form-group">
@@ -15,7 +15,7 @@
         <label for="Check-out">Check-out</label>
         <input type="text" class="form-control" id="checkout" name="search[checkout]">
     </div>
-    <button class="btn btn-primary">Submit</button>
+    <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 
 <%- include("./partials/footer.ejs"); %>

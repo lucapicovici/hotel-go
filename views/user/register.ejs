@@ -2,16 +2,24 @@
 
 <h1>Register</h1>
 
-<form action="#">
+<% if (errMessages.length > 0) { %>
+    <div class="alert alert-danger" role="alert">
+        <% errMessages.forEach(function(message){ %>
+            <p><%= message %></p>
+        <% }) %>
+    </div> 
+<% } %>
+
+<form action="/user/register" method="POST">
     <div class="form-group">
         <label for="email">Email address</label>
-        <input type="email" class="form-control" name="register[email]" id="email">
+        <input type="email" class="form-control" name="email" id="email" placeholder="email">
     </div>
     <div class="form-group">
         <label for="password">Password</label>
-        <input type="password" class="form-control" name="register[password]" id="password">
+        <input type="password" class="form-control" name="password" id="password" placeholder="password">
     </div>
-    <button class="btn btn-primary">Register</button>
+    <button type="submit" class="btn btn-primary">Register</button>
 </form>
 
 <%- include("../partials/footer.ejs"); %>
