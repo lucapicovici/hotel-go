@@ -1,5 +1,6 @@
 var mongoose      = require("mongoose"),
-    Accommodation = require("./models/accommodation.js");
+    Accommodation = require("./models/accommodation.js"),
+    Booking       = require("./models/booking.js");
 
 var accommodationData = [
     {
@@ -23,7 +24,7 @@ var accommodationData = [
                 name: "Superior Double Room",
                 beds: "1 large double bed",
                 peopleCount: 2,
-                roomCount: 7,
+                availableRooms: 7,
                 facilities: [
                     "22 m^2",
                     "Air conditioning",
@@ -38,7 +39,7 @@ var accommodationData = [
                 name: "Deluxe room",
                 beds: "1 large double bed",
                 peopleCount: 2,
-                roomCount: 5,
+                availableRooms: 5,
                 facilities: [
                     "22 m^2",
                     "Landmark view",
@@ -73,7 +74,7 @@ var accommodationData = [
                 name: "Double room",
                 beds: "1 double bed",
                 peopleCount: 2,
-                roomCount: 3,
+                availableRooms: 3,
                 facilities: [
                     "15 m^2",
                     "Wi-Fi",
@@ -103,7 +104,7 @@ var accommodationData = [
                 name: "Economy Single Room - No Window",
                 beds: "1 single bed",
                 peopleCount: 1,
-                roomCount: 3,
+                availableRooms: 3,
                 facilities: [
                     "Air conditioning",
                     "Flat-screen TV",
@@ -116,7 +117,7 @@ var accommodationData = [
                 name: "Single Room",
                 beds: "1 single bed",
                 peopleCount: 1,
-                roomCount: 3,
+                availableRooms: 3,
                 facilities: [
                     "Air conditioning",
                     "Flat-screen TV",
@@ -129,7 +130,7 @@ var accommodationData = [
                 name: "Small Double Room",
                 beds: "1 single bed",
                 peopleCount: 2,
-                roomCount: 2,
+                availableRooms: 2,
                 facilities: [
                     "Air conditioning",
                     "Flat-screen TV",
@@ -142,7 +143,7 @@ var accommodationData = [
                 name: "City Twin Room",
                 beds: "2 single beds",
                 peopleCount: 2,
-                roomCount: 2,
+                availableRooms: 2,
                 facilities: [
                     "Air conditioning",
                     "Flat-screen TV",
@@ -155,7 +156,7 @@ var accommodationData = [
                 name: "Quadruple Room",
                 beds: "2 single beds and 1 double bed",
                 peopleCount: 2,
-                roomCount: 2,
+                availableRooms: 2,
                 facilities: [
                     "23 m^2",
                     "Air conditioning",
@@ -168,6 +169,8 @@ var accommodationData = [
         ]
     }
 ];
+
+
 
 module.exports = function seedDB() {
     Accommodation.deleteMany({}, function(err){

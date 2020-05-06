@@ -1,0 +1,27 @@
+<%- include("../partials/header.ejs"); %>
+
+<div class="container">
+    <h2>My Bookings</h2>
+
+    <% bookings.forEach(function(booking){ %>
+        <% var d = booking._id.getTimestamp(); %>
+        <div class="card mb-5">
+            <div class="card-header">
+                <a href="/user/bookings/<%= booking._id %>">Booking no. <%= booking._id %></a>
+                <a class="btn btn-sm btn-info float-right" href="/user/bookings/<%= booking._id %>">Details</a>
+            </div>
+            <div class="card-body">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                        Booked on <%= d.toUTCString() %>
+                    </li>
+                    <p class="card-text" id="totalPrice" style="padding-left: 20px;">
+                        <strong>Total: $<%= booking.price %></strong>
+                    </p>
+                </ul>
+            </div>
+        </div>
+    <% }); %>
+</div>
+
+<%- include("../partials/footer.ejs"); %>

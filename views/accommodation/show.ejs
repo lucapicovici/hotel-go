@@ -24,7 +24,7 @@
                 <li><%= accommodation.roomTypes[i].name %></li>
                 <li><%= accommodation.roomTypes[i].beds %></li>
                 <li>Recommended for <%= accommodation.roomTypes[i].peopleCount %> people</li>
-                <li>Number of rooms: <%= accommodation.roomTypes[i].roomCount %></li>
+                <li>Number of rooms: <%= accommodation.roomTypes[i].availableRooms %></li>
                 <li>
                     Facilities:
                     <ul>
@@ -37,6 +37,30 @@
             <% } %>
         </ul>
     </div>
+    <hr>
+    <form action="/user/bookings" method="POST">
+        <div class="form-group">
+            <input type="text" class="form-control" name="book[room]" placeholder="Room">
+        </div>
+        <div class="form-group">
+            <input type="date" class="form-control" name="book[checkIn]">
+        </div>
+        <div class="form-group">
+            <input type="date" class="form-control" name="book[checkOut]">
+        </div>
+        <div class="form-group">
+            <input type="number" class="form-control" name="book[adults]" placeholder="Adults">
+        </div>
+        <div class="form-group">
+            <input type="number" class="form-control" name="book[price]" placeholder="Price">
+        </div>
+        <input type="hidden" name="book[accommodation]" value="<%= accommodation._id %>">
+        <% if (isLoggedIn) { %>
+            <button class="btn btn-success">Book a room</button>
+        <% } else { %>
+            <a class="btn btn-info" href="/user/login">Login to book</a>
+        <% } %>
+    </form>
    
 </div>
 

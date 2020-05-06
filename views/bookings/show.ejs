@@ -1,0 +1,41 @@
+<%- include("../partials/header.ejs"); %>
+
+<div class="container">
+    <h2>Booking no. <%= booking._id %></h2>
+
+    <% var d = new Date(booking._id.getTimestamp() + " UTC"); %>
+    <div class="card mb-5">
+        <div class="card-body">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                    <strong>User:</strong> <%= booking.user.email %>
+                </li>
+                <li class="list-group-item">
+                    <strong>Accommodation:</strong> <%= booking.accommodation.name %>
+                </li>
+                <li class="list-group-item">
+                    <strong>Room:</strong> <%= booking.roomType %>
+                </li>
+                <li class="list-group-item">
+                    <strong>Check-In:</strong> <%= booking.checkIn.toUTCString() %>
+                </li>
+                <li class="list-group-item">
+                    <strong>Check-Out:</strong> <%= d3.toUTCString() %>
+                </li>
+                <li class="list-group-item">
+                    <strong>Adults:</strong> <%= booking.adults %>
+                </li>
+                <li class="list-group-item">
+                    <em>
+                        Booking placed on <%=  d.toUTCString() %>
+                    </em>
+                </li>
+                <p class="card-text" id="totalPrice" style="padding-left: 20px;">
+                    <strong>Total: $<%= booking.price %></strong>
+                </p>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<%- include("../partials/footer.ejs"); %>

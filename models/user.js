@@ -6,6 +6,8 @@ var userSchema = new mongoose.Schema({
     password: {type: String, required: true}
 });
 
+userSchema.index({email: 1}, {unique: true});
+
 userSchema.methods.encryptPassword = function(password) {
     return bcrypt.hashSync(password, bcrypt.genSaltSync(5), null);
 }
