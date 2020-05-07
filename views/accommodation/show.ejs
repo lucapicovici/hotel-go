@@ -19,6 +19,7 @@
             <li><%= accommodation.name %></li>
             <li><%= accommodation.address %></li>
             <li><%= accommodation.description %></li>
+
             <% for (var i = 0; i < accommodation.roomTypes.length; i++) { %>
                 <hr>
                 <li><%= accommodation.roomTypes[i].name %></li>
@@ -33,35 +34,56 @@
                         <% }); %>
                     </ul>
                 </li>
-                <li>Price: $<%= accommodation.roomTypes[i].price %></li>
+                <li>Price: $<%= accommodation.roomTypes[i].price %> / night</li>
             <% } %>
         </ul>
     </div>
     <hr>
     <form action="/user/bookings" method="POST">
         <div class="form-group">
-            <input type="text" class="form-control" name="book[room]" placeholder="Room">
+            <label for="room">Room</label>
+            <select class="form-control" id="room" name="book[room]" required>
+                <% for (var i = 0; i < accommodation.roomTypes.length; i++) { %>
+                    <option><%= accommodation.roomTypes[i].name %></option>
+                <% } %>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="checkIn">Check-In</label>
+            <input type="date" class="form-control" id="checkIn" name="book[checkIn]" required>
         </div>
         <div class="form-group">
-            <input type="date" class="form-control" name="book[checkIn]">
+            <label for="checkOut">Check-Out</label>
+            <input type="date" class="form-control" id="checkOut" name="book[checkOut]" required>
         </div>
+
         <div class="form-group">
-            <input type="date" class="form-control" name="book[checkOut]">
+            <label for="adults">Adults</label>
+            <select class="form-control" id="adults" name="book[adults]" required>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+                <option>7</option>
+                <option>8</option>
+            </select>
         </div>
+        
         <div class="form-group">
-            <input type="number" class="form-control" name="book[adults]" placeholder="Adults">
+            <input type="number" class="form-control" name="book[price]" id="price" placeholder="Price" required>
         </div>
-        <div class="form-group">
-            <input type="number" class="form-control" name="book[price]" placeholder="Price">
-        </div>
-        <input type="hidden" name="book[accommodation]" value="<%= accommodation._id %>">
+
+        <input type="hidden" name="book[accommodation]" value="<%= accommodation._id %>" required>
+
         <% if (isLoggedIn) { %>
             <button class="btn btn-success">Book a room</button>
         <% } else { %>
             <a class="btn btn-info" href="/user/login">Login to book</a>
         <% } %>
     </form>
-   
 </div>
 
 

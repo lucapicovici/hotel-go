@@ -13,17 +13,21 @@ router.get("/user/profile", isLoggedIn, function(req, res){
 });
 
 router.get("/user/bookings", isLoggedIn, function(req, res){
-    Booking.find({user: req.user._id}, function(err, bookings){
-        if (err) {
-            console.log(err);
-            res.redirect("/user/profile");
-        } else {
-            res.render("bookings/index", {bookings: bookings});
-        }
-    });
+    Booking.find({user: req.user._id})
+        .populate('accommodation', 'name')
+        .exec(function(err, bookings){
+            if (err) {
+                console.log(err);
+                res.redirect("/user/profile");
+            } else {
+                res.render("bookings/index", {bookings: bookings});
+            }
+        });
 });
 
 router.post("/user/bookings", isLoggedIn, function(req, res){
+    // Validations
+
     var form = req.body.book;
     var booking = new Booking({
         user: req.user._id,

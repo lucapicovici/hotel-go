@@ -3,7 +3,7 @@
 <div class="container">
     <h2>Booking no. <%= booking._id %></h2>
 
-    <% var d = new Date(booking._id.getTimestamp() + " UTC"); %>
+    <% var d = booking._id.getTimestamp(); %>
     <div class="card mb-5">
         <div class="card-body">
             <ul class="list-group list-group-flush">
@@ -20,7 +20,7 @@
                     <strong>Check-In:</strong> <%= booking.checkIn.toUTCString() %>
                 </li>
                 <li class="list-group-item">
-                    <strong>Check-Out:</strong> <%= d3.toUTCString() %>
+                    <strong>Check-Out:</strong> <%= booking.checkOut.toUTCString() %>
                 </li>
                 <li class="list-group-item">
                     <strong>Adults:</strong> <%= booking.adults %>

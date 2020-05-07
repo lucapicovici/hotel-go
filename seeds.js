@@ -177,15 +177,22 @@ module.exports = function seedDB() {
         if (err) {
             console.log(err);
         } else {
-            console.log("Removed all accommodation from database.");
+            console.log("--- Removed all accommodation from database.");
             accommodationData.forEach(function(accommodation){
                 Accommodation.create(accommodation, function(err, accommodation){
                     if (err) {
                         console.log(err);
                     } else {
-                        console.log(`Added ${accommodation.name}`);
+                        console.log(`+ Added ${accommodation.name}`);
                     }
                 });
+            });
+            Booking.deleteMany({}, function(err){
+                if (err) {
+                    console.log(err);
+                } else {
+                    console.log("--- Removed all bookings from database.");
+                }
             });
         }
     });
