@@ -5,19 +5,19 @@
 <form action="/accommodation" method="GET">
     <div class="form-group">
         <label for="destination">Destination</label>
-        <input type="text" class="form-control" id="destination" name="search[destination]">
+        <input type="text" class="form-control" id="destination" name="destination">
     </div>
     <div class="form-group">
         <label for="checkin">Check-in</label>
-        <input type="text" class="form-control" id="checkin" name="search[checkin]">
+        <input type="date" class="form-control" id="checkin" name="checkin">
     </div>
     <div class="form-group">
         <label for="checkout">Check-out</label>
-        <input type="text" class="form-control" id="checkout" name="search[checkout]">
+        <input type="date" class="form-control" id="checkout" name="checkout">
     </div>
     <div class="form-group">
         <label for="adults">Adults</label>
-        <input type="text" class="form-control" id="adults" name="search[adults]">
+        <input type="number" class="form-control" id="adults" name="adults" default="0">
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>
