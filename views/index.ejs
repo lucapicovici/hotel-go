@@ -1,25 +1,188 @@
 <%- include("./partials/header.ejs"); %>
 
-<h1>Search destinations</h1>
 
-<form action="/accommodation" method="GET">
-    <div class="form-group">
-        <label for="destination">Destination</label>
-        <input type="text" class="form-control" id="destination" name="destination">
+
+
+<div class="searchTitle">
+    <h1>Search destinations</h1>
+</div>
+
+
+<div role="main">
+    <section class="jumbotron text-center">
+        <div class="container">
+            <form action="/accommodation" method="GET">
+                <div class="form-group">
+                    <label for="destination">Destination</label>
+                    <input type="text" class="form-control" id="destination" name="search[destination]" value="London">
+                </div>
+                <div class="form-group row">
+                    <div class="col">
+                        <label for="Check-in">Check-in</label>
+                        <input type="date" class="form-control" id="checkin" name="search[checkin]" value="2020-06-01">
+                    </div>
+                    <div class="col">
+                        <label for="Check-out">Check-out</label>
+                        <input type="date" class="form-control" id="checkout" name="search[checkout]" value="2020-06-29">
+                    </div>
+                    <!-- <div class="form-group">
+                      <label for="adults">Adults</label>
+                      <input type="number" class="form-control" id="adults" name="adults" default="0">
+                    </div> -->
+                    <div class="w-100"></div>
+                </div>
+                <div class="form-group col">
+                    
+                </div>
+                <button type="submit" class="btn btn-primary">Search</button>
+            </form>
+        </div>
+    </section>
+
+      <div class="album py-5 bg-light">
+        <div class="container">
+
+          <div class="row">
+            <div class="col-md-4">
+              <div class="card mb-4 box-shadow">
+                <img class="card-img-top" src="https://www.sortiraparis.com/images/80/1467/534046-visuel-paris-tour-eiffel-2.jpg" alt="Paris">
+                <div class="card-body">
+                  <p class="card-text">Paris, France's capital, is a major European city and a global center for art, fashion, gastronomy and culture. Its 19th-century cityscape is crisscrossed by wide boulevards and the River Seine. Beyond such landmarks as the Eiffel Tower and the 12th-century, Gothic Notre-Dame cathedral, the city is known for its cafe culture and designer boutiques along the Rue du Faubourg Saint-Honoré.</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                      <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                      <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                    </div>
+                    <small class="text-muted">9 mins</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card mb-4 box-shadow">
+                <img class="card-img-top" src="https://www.gannett-cdn.com/presto/2020/01/28/USAT/d2c8faa4-bf29-4542-a382-889b8f9d2f26-vegas-skyline.jpg?crop=1414,1414,x686,y0" alt="Las Vegas">
+                <div class="card-body">
+                  <p class="card-text">Las Vegas, officially the City of Las Vegas and often known simply as Vegas, is the 28th-most populated city in the United States, the most populated city in the state of Nevada, and the county seat of Clark County.</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                      <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                      <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                    </div>
+                    <small class="text-muted">9 mins</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card mb-4 box-shadow">
+                <img class="card-img-top" src="https://cdn.vox-cdn.com/thumbor/GBBjOeQlI8I7V2pwqIuEt-Ka4pk=/1400x1400/filters:format(png)/cdn.vox-cdn.com/uploads/chorus_asset/file/19429402/Screen_Shot_2019_12_04_at_5.16.27_AM.png" alt="San Francisco">
+                <div class="card-body">
+                  <p class="card-text">San Francisco, officially the City and County of San Francisco and colloquially known as SF, San Fran, Frisco, or The City, is the cultural, commercial, and financial center of Northern California.</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                      <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                      <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                    </div>
+                    <small class="text-muted">9 mins</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <div class="card mb-4 box-shadow">
+                <img class="card-img-top" src="https://worldstrides.com/wp-content/uploads/2015/07/iStock_000040849990_Large.jpg" alt="New York">
+                <div class="card-body">
+                  <p class="card-text">New York City comprises 5 boroughs sitting where the Hudson River meets the Atlantic Ocean. At its core is Manhattan, a densely populated borough that’s among the world’s major commercial, financial and cultural centers. Its iconic sites include skyscrapers such as the Empire State Building and sprawling Central Park. Broadway theater is staged in neon-lit Times Square.</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                      <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                      <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                    </div>
+                    <small class="text-muted">9 mins</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card mb-4 box-shadow">
+                <img class="card-img-top" src="https://www.cityam.com/wp-content/uploads/2020/02/London_Tower_Bridge_City.jpg" alt="London">
+                <div class="card-body">
+                  <p class="card-text">London, the capital of England and the United Kingdom, is a 21st-century city with history stretching back to Roman times. At its centre stand the imposing Houses of Parliament, the iconic ‘Big Ben’ clock tower and Westminster Abbey, site of British monarch coronations. Across the Thames River, the London Eye observation wheel provides panoramic views of the South Bank cultural complex, and the entire city.</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                      <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                      <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                    </div>
+                    <small class="text-muted">9 mins</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card mb-4 box-shadow">
+                <img class="card-img-top" src="https://s3-prod.chicagobusiness.com/s3fs-public/editorial-chicago-WEB_i.jpg" alt="Chicago">
+                <div class="card-body">
+                  <p class="card-text">Chicago, on Lake Michigan in Illinois, is among the largest cities in the U.S. Famed for its bold architecture, it has a skyline punctuated by skyscrapers such as the iconic John Hancock Center, 1,451-ft. Willis Tower (formerly the Sears Tower) and the neo-Gothic Tribune Tower. The city is also renowned for its museums, including the Art Institute of Chicago with its noted Impressionist and Post-Impressionist works.</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                      <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                      <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                    </div>
+                    <small class="text-muted">9 mins</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <div class="card mb-4 box-shadow">
+                <img class="card-img-top" src="https://cdn.getyourguide.com/img/tour_img-2589583-148.jpg" alt="Bucharest">
+                <div class="card-body">
+                  <p class="card-text">Bucharest, in southern Romania, is the country's capital and commercial center. Its iconic landmark is the massive, communist-era Palatul Parlamentului government building, which has 1,100 rooms. Nearby, the historic Lipscani district is home to an energetic nightlife scene as well as tiny Eastern Orthodox Stavropoleos Church and 15th-century Curtea Veche Palace, where Prince Vlad III (“The Impaler”) once ruled.</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                      <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                      <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                    </div>
+                    <small class="text-muted">9 mins</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card mb-4 box-shadow">
+                <img class="card-img-top" src="https://i1.wp.com/media.kankan.md/image/201503/700x/kankan_a5cf525381f390eb114ecce4d551ebd6.jpg" alt="Chisinau">
+                <div class="card-body">
+                  <p class="card-text">Chișinău is the capital of Eastern Europe's Republic of Moldova. Amid blocks of Soviet-style architecture are landmarks including the neoclassical Nativity Cathedral. The dome-topped church anchors Chișinău's Cathedral Park, a plaza with a Triumphal Arch celebrating Russia's 19th-century victory over the Ottoman Empire. Stephen the Great Central Park is named for a Moldovan prince who resisted Ottoman rule.</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                      <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                      <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                    </div>
+                    <small class="text-muted">9 mins</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card mb-4 box-shadow">
+                <img class="card-img-top" src="https://image.arrivalguides.com/415x300/13/57b64955e4dc0e64ddfb872fa17d3435.jpg" alt="Cluj">
+                <div class="card-body">
+                  <p class="card-text">Cluj-Napoca, a city in northwestern Romania, is the unofficial capital of the Transylvania region. It's home to universities, vibrant nightlife and landmarks dating to Saxon and Hungarian rule. Surrounding its central square, Piața Unirii, is the Gothic-style St. Michael's Church and the dramatic Matthias Corvinus Statue of the 15th-century king. The baroque-era Bánffy Palace is now a museum showcasing Romanian art.</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                      <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                      <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                    </div>
+                    <small class="text-muted">9 mins</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
     </div>
-    <div class="form-group">
-        <label for="checkin">Check-in</label>
-        <input type="date" class="form-control" id="checkin" name="checkin">
-    </div>
-    <div class="form-group">
-        <label for="checkout">Check-out</label>
-        <input type="date" class="form-control" id="checkout" name="checkout">
-    </div>
-    <div class="form-group">
-        <label for="adults">Adults</label>
-        <input type="number" class="form-control" id="adults" name="adults" default="0">
-    </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
-</form>
+</div>
 
 <%- include("./partials/footer.ejs"); %>
