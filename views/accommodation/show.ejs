@@ -54,32 +54,44 @@
     </div>
 </div>
 
+
 <div class="container">
-    
     <div class="row">
-        <ul class="list-group">
-            <li><%= accommodation.name %></li>
-            <li><%= accommodation.address %></li>
-            <li><%= accommodation.description %></li>
-            <% for (var i = 0; i < accommodation.roomTypes.length; i++) { %>
-                <hr>
-                <li><%= accommodation.roomTypes[i].name %></li>
-                <li><%= accommodation.roomTypes[i].beds %></li>
-                <li>Recommended for <%= accommodation.roomTypes[i].peopleCount %> people</li>
-                <li>Number of rooms: <%= accommodation.roomTypes[i].roomCount %></li>
-                <li>
-                    Facilities:
-                    <ul>
-                        <% accommodation.roomTypes[i].facilities.forEach(function(facility){ %>
-                            <li><%= facility %></li>
-                        <% }); %>
-                    </ul>
-                </li>
-                <li>Price: $<%= accommodation.roomTypes[i].price %></li>
-            <% } %>
-        </ul>
+      <h1><%= accommodation.name %></h1><br>
+      <h4><%= accommodation.address %></h4><br>
+      <h6><%= accommodation.description %></h6>
     </div>
-   
+</div>
+
+<div class="row row-cols-1 row-cols-md-2">
+  <% for (var i = 0; i < accommodation.roomTypes.length; i++) { %>    
+    <div class="col mb-4 card-rooms">
+      <div class="card">
+        <img src="<%= accommodation.photos[i].src %>" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title"><%= accommodation.roomTypes[i].name %></h5>
+          <p class="card-text">
+            <ul class="list-group descriptionRoom">
+              <li><%= accommodation.roomTypes[i].beds %></li>
+              <li>Recommended for <%= accommodation.roomTypes[i].peopleCount %> people</li>
+              <li>Number of rooms: <%= accommodation.roomTypes[i].roomCount %></li>
+              <li>
+                Facilities:
+                <ul>
+                    <% accommodation.roomTypes[i].facilities.forEach(function(facility){ %>
+                        <li><%= facility %></li>
+                    <% }); %>
+                </ul>
+              </li>
+              <li>Price: $<%= accommodation.roomTypes[i].price %>
+              </li>
+            </ul>
+          </p>
+        </div>
+      </div>
+    </div>
+    
+  <% } %>
 </div>
 
 

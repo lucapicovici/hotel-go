@@ -1,3 +1,4 @@
+
 /**/
 main {
 	height: 3000px;
@@ -75,6 +76,28 @@ footer p {
 	text-align: center;
 }
 
+.resultPage {
+	margin: auto;
+	padding: 20px;
+}
+
+.descriptionRoom {
+	align-content: center;
+	padding-left: 60px;
+}
+
+.card-columns {
+  @include media-breakpoint-only(lg) {
+    column-count: 4;
+  }
+  @include media-breakpoint-only(xl) {
+    column-count: 5;
+  }
+}
+
+.card-rooms {
+	padding: 50px;
+}
 
 
 
