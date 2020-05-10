@@ -14,6 +14,7 @@ var indexRoutes         = require("./routes/index.js"),
 require("./config/passport.js");
 
 app.set("view engine", "ejs");
+app.use(express.static(__dirname + "/public"));
 app.use(session({
     secret: "The secret ingredient for a great omelette is mexican chorizo sausage. Trust me.",
     saveUninitialized: false,
