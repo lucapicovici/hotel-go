@@ -61,106 +61,109 @@
       <h4><%= accommodation.address %></h4><br>
       <h6><%= accommodation.description %></h6>
     </div>
-</div>
 
-<div class="row row-cols-1 row-cols-md-2">
-  <% for (var i = 0; i < accommodation.roomTypes.length; i++) { %>    
-    <div class="col mb-4 card-rooms">
-      <div class="card">
-        <img src="<%= accommodation.photos[i].src %>" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title"><%= accommodation.roomTypes[i].name %></h5>
-          <p class="card-text">
-            <ul class="list-group descriptionRoom">
-              <li><%= accommodation.roomTypes[i].beds %></li>
-              <li>Recommended for <%= accommodation.roomTypes[i].peopleCount %> people</li>
-              <li>Number of rooms: <%= accommodation.roomTypes[i].availableRooms %></li>
-              <li>
-                Facilities:
-                <ul>
-                    <% accommodation.roomTypes[i].facilities.forEach(function(facility){ %>
-                        <li><%= facility %></li>
-                    <% }); %>
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-2">
+      <% for (var i = 0; i < accommodation.roomTypes.length; i++) { %>    
+        <div class="col mb-4 card-rooms">
+          <div class="card" style="width: 29rem;">
+            <div class="img-wrap" style="height: 300px; display: flex;">
+              <img src="<%= accommodation.roomTypes[i].photos[0].src %>" style="max-width: 100%; max-height: 100%;" class="card-img-top" alt="...">
+            </div>
+            <div class="card-body">
+              <h5 class="card-title"><%= accommodation.roomTypes[i].name %></h5>
+              <p class="card-text">
+                <ul class="list-group descriptionRoom">
+                  <li><%= accommodation.roomTypes[i].beds %></li>
+                  <li>Recommended for <%= accommodation.roomTypes[i].peopleCount %> people</li>
+                  <li>Number of rooms: <%= accommodation.roomTypes[i].availableRooms %></li>
+                  <li>
+                    Facilities:
+                    <ul>
+                        <% accommodation.roomTypes[i].facilities.forEach(function(facility){ %>
+                            <li><%= facility %></li>
+                        <% }); %>
+                    </ul>
+                  </li>
+                  <li>Price: $<%= accommodation.roomTypes[i].price %>
+                  </li>
                 </ul>
-              </li>
-              <li>Price: $<%= accommodation.roomTypes[i].price %>
-              </li>
-            </ul>
-          </p>
+              </p>
+            </div>
+          </div>
         </div>
+        
+      <% } %>
+    </div>
+
+    <form action="/user/bookings" method="POST" id="accommodationForm">
+      <div class="form-group">
+          <label for="room">Room</label>
+          <select class="form-control" id="room" name="book[room]" required>
+              <% for (var i = 0; i < accommodation.roomTypes.length; i++) { %>
+                  <option><%= accommodation.roomTypes[i].name %></option>
+              <% } %>
+          </select>
       </div>
-    </div>
-    
-  <% } %>
-
-  <form action="/user/bookings" method="POST">
-    <div class="form-group">
-        <label for="room">Room</label>
-        <select class="form-control" id="room" name="book[room]" required>
-            <% for (var i = 0; i < accommodation.roomTypes.length; i++) { %>
-                <option><%= accommodation.roomTypes[i].name %></option>
-            <% } %>
-        </select>
-    </div>
-
-    <div class="form-group">
-        <label for="checkIn">Check-In</label>
-        <input type="date" class="form-control" id="checkIn" name="book[checkIn]" required>
-    </div>
-    <div class="form-group">
-        <label for="checkOut">Check-Out</label>
-        <input type="date" class="form-control" id="checkOut" name="book[checkOut]" required>
-    </div>
-
-    <div class="form-group">
-        <label for="adults">Adults</label>
-        <select class="form-control" id="adults" name="book[adults]" required>
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-            <option>6</option>
-            <option>7</option>
-            <option>8</option>
-            <option>9</option>
-            <option>10</option>
-            <option>11</option>
-            <option>12</option>
-        </select>
-    </div>
-    
-    <div class="form-group">
-        <input type="number" class="form-control" name="book[price]" id="price" placeholder="Price" required>
-    </div>
-
-    <input type="hidden" name="book[accommodation]" value="<%= accommodation._id %>" required>
-
-    <% if (isLoggedIn) { %>
-        <button class="btn btn-success">Book a room</button>
-        <a class="btn btn-info" id="calculate" >Calculate price</a>
-    <% } else { %>
-        <a class="btn btn-info" href="/user/login">Login to book</a>
-    <% } %>
-
-    <script>
-        $("#calculate").on("click", function(){
-            var startDay = new Date($("#checkIn").val());
-            var endDay = new Date($("#checkOut").val());
-
-            if (endDay > startDay) {
-                var millisBetween = startDay.getTime() - endDay.getTime();
-                var days = millisBetween / (1000 * 3600 * 24);
-                var diffDays = Math.round(Math.abs(days));
-                var pricePerNight = 100;  // Will be returned with AJAX later
-
-                var totalPrice = $("#adults").val() * diffDays * pricePerNight;
-                $("#price").val(totalPrice);
-            }
-        });
-    </script>
-</form>
+  
+      <div class="form-group">
+          <label for="checkIn">Check-In</label>
+          <input type="date" class="form-control" id="checkIn" name="book[checkIn]" required>
+      </div>
+      <div class="form-group">
+          <label for="checkOut">Check-Out</label>
+          <input type="date" class="form-control" id="checkOut" name="book[checkOut]" required>
+      </div>
+  
+      <div class="form-group">
+          <label for="adults">Adults</label>
+          <select class="form-control" id="adults" name="book[adults]" required>
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+              <option>6</option>
+              <option>7</option>
+              <option>8</option>
+              <option>9</option>
+              <option>10</option>
+              <option>11</option>
+              <option>12</option>
+          </select>
+      </div>
+      
+      <div class="form-group">
+          <input type="number" class="form-control" name="book[price]" id="price" placeholder="Price" required>
+      </div>
+  
+      <input type="hidden" name="book[accommodation]" value="<%= accommodation._id %>" required>
+  
+      <% if (isLoggedIn) { %>
+          <button class="btn btn-success">Book a room</button>
+          <a class="btn btn-info" id="calculate" >Calculate price</a>
+      <% } else { %>
+          <a class="btn btn-info" href="/user/login">Login to book</a>
+      <% } %>
+  
+      <script>
+          $("#calculate").on("click", function(){
+              var startDay = new Date($("#checkIn").val());
+              var endDay = new Date($("#checkOut").val());
+  
+              if (endDay > startDay) {
+                  var millisBetween = startDay.getTime() - endDay.getTime();
+                  var days = millisBetween / (1000 * 3600 * 24);
+                  var diffDays = Math.round(Math.abs(days));
+                  var pricePerNight = 100;  // Will be returned with AJAX later
+  
+                  var totalPrice = $("#adults").val() * diffDays * pricePerNight;
+                  $("#price").val(totalPrice);
+              }
+          });
+      </script>
+    </form>
 </div>
+
 
 
 <%- include("../partials/footer.ejs"); %>

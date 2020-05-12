@@ -1,7 +1,7 @@
 
 /**/
 main {
-	height: 3000px;
+	height: auto;
 }
 .navbar {
 	background-color: #8996ab !important;
@@ -78,7 +78,7 @@ footer p {
 
 .resultPage {
 	margin: auto;
-	padding: 20px;
+	padding: 20px 20px 60px 20px;
 }
 
 .descriptionRoom {
@@ -119,7 +119,6 @@ footer p {
 }
 
 .textC {
-	color:;
 	font-size: 60px;
 }
 
@@ -242,4 +241,9 @@ footer p {
   margin-bottom: 10px;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
+}
+
+/* Accommodation Show Form */
+#accommodationForm {
+  margin: 10px 0px 100px 0px;
 }

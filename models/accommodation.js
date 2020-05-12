@@ -19,6 +19,9 @@ var accommodationSchema = new mongoose.Schema({
             peopleCount: {type: Number, required: true, min: 0},
             availableRooms: {type: Number, required: true, min: 0},
             facilities: [String],
+            photos: [
+                {src: {type: String, required: true}}
+            ],
             price: {type: Number, required: true, min: 0}
         }
     ]

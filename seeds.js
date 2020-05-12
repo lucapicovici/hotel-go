@@ -33,6 +33,9 @@ var accommodationData = [
                     "Wi-Fi",
                     "Private bathroom"
                 ],
+                photos: [
+                    {src: "https://r-cf.bstatic.com/images/hotel/max1280x900/186/186450237.jpg"}
+                ],
                 price: 139
             },
             {
@@ -49,6 +52,9 @@ var accommodationData = [
                     "Soundproofing",
                     "Wi-Fi",
                     "Private bathroom"
+                ],
+                photos: [
+                    {src: "https://r-cf.bstatic.com/images/hotel/max1280x900/130/130867441.jpg"}
                 ],
                 price: 169
             }
@@ -78,6 +84,9 @@ var accommodationData = [
                 facilities: [
                     "15 m^2",
                     "Wi-Fi",
+                ],
+                photos: [
+                    {src: "https://r-cf.bstatic.com/images/hotel/max1280x900/243/243393380.jpg"}
                 ],
                 price: 25
             }
@@ -111,6 +120,9 @@ var accommodationData = [
                     "Wi-Fi",
                     "Ensuite bathroom"
                 ],
+                photos: [
+                    {src: "https://q-cf.bstatic.com/images/hotel/max1280x900/597/59763466.jpg"}
+                ],
                 price: 30
             },
             {
@@ -123,6 +135,9 @@ var accommodationData = [
                     "Flat-screen TV",
                     "Wi-Fi",
                     "Ensuite bathroom"
+                ],
+                photos: [
+                    {src: "https://q-cf.bstatic.com/images/hotel/max1280x900/121/121557337.jpg"}
                 ],
                 price: 35
             },
@@ -137,6 +152,9 @@ var accommodationData = [
                     "Wi-Fi",
                     "Ensuite bathroom"
                 ],
+                photos: [
+                    {src: "https://q-cf.bstatic.com/images/hotel/max1280x900/188/188428274.jpg"}
+                ],
                 price: 40
             },
             {
@@ -149,6 +167,9 @@ var accommodationData = [
                     "Flat-screen TV",
                     "Wi-Fi",
                     "Ensuite bathroom"
+                ],
+                photos: [
+                    {src: "https://r-cf.bstatic.com/images/hotel/max1280x900/188/188428202.jpg"}
                 ],
                 price: 40
             },
@@ -163,6 +184,9 @@ var accommodationData = [
                     "Flat-screen TV",
                     "Wi-Fi",
                     "Ensuite bathroom"
+                ],
+                photos: [
+                    {src: "https://q-cf.bstatic.com/images/hotel/max1280x900/463/46322428.jpg"}
                 ],
                 price: 75
             }
