@@ -1,7 +1,11 @@
 <%- include("../partials/header.ejs"); %>
 
-<div class="container">
+<div class="bookingTitle">
     <h2>My Bookings</h2>
+</div>
+
+<div class="container mt-5 bookingDiv">
+    
 
     <% bookings.forEach(function(booking){ %>
         <% var d = booking._id.getTimestamp(); %>
